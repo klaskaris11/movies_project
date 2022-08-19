@@ -6,6 +6,7 @@ import './App.css';
 import * as actions from './Store/Actions/index';
 import Spinner from './Components/UI/Spinner/Spinner';
 import ListMovies from './Views/ListMovies/ListMovies';
+import { Row, Col } from './Components/UI/Grid/Grid';
 
 function App(props) {
 
@@ -21,7 +22,14 @@ function App(props) {
           ? <Spinner
             text="Φόρτωση Εφαρμογής..."
           />
-          : <ListMovies />
+          : <Row>
+            <Col sm={12} md={12} lg={6} xl={6} classes={["border", "border-2"]}>
+              <ListMovies />
+            </Col>
+            <Col sm={12} md={12} lg={6} xl={6} classes={["pt-3", "pt-lg-0"]}>
+              test details
+            </Col>
+          </Row>
       }
     </div>
   );

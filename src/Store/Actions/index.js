@@ -22,6 +22,13 @@ export const fetchAllMoviesFail = (error) => {
     }
 }
 
+export const selectMovie = (episode_id) => {
+    return {
+        type: actionTypes.SELECT_MOVIE,
+        payload: episode_id
+    }
+}
+
 export const fetchAllMovies = () => {
     return dispatch => {
         dispatch(fetchAllMoviesStart());
