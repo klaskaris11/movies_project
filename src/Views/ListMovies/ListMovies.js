@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import DataTable from 'react-data-table-component';
 import PropTypes from 'prop-types';
+import { isEmpty } from 'lodash';
 
 import * as actions from '../../Store/Actions/index';
 import { MovieShape } from '../../Models/MovieShape';
+import { Row, Col } from '../../Components/UI/Grid/Grid';
+import DatatableFilter from '../../Components/UI/DatatableFilter/DatatableFilter';
 
 const columns = [
     {
@@ -26,18 +29,58 @@ const columns = [
 
 function ListMovies(props) {
 
+    const [filterText, setFilterText] = useState('');
+    const [toggledClearRows, setToggledClearRows] = useState(false);
+
+    const filteredItems = props.movies.filter(
+        movie => movie.title && movie.title.toLowerCase().includes(filterText.toLowerCase()),
+    );
+
+    const clearDatagridSelection = () => {
+        setToggledClearRows(!toggledClearRows);
+        props.selectMovie(null);
+    }
+
     //Docs of the following: https://react-data-table-component.netlify.app/
     return (
-        <DataTable
-            columns={columns}
-            data={props.movies}
-            selectableRows
-            selectableRowsHighlight
-            selectableRowsSingle
-            selectableRowsVisibleOnly
-            onSelectedRowsChange={(data) => props.selectMovie(data.selectedRows[0].episode_id)}
-        />
+        <>
+            <Row classes={["mt-2", "p-3"]}>
+                <DatatableFilter
+                    disabled={isEmpty(filterText)}
+                    filterText={filterText}
+                    onFilter={e => {
+                        setFilterText(e.target.value);
+                        clearDatagridSelection();
+                    }}
+                    onClear={() => {
+                        setFilterText("");
+                        clearDatagridSelection();
+                    }}
+                />
+            </Row>
+            <Row>
+                <DataTable
+                    columns={columns}
+                    data={filteredItems}
+                    striped
+                    selectableRows
+                    selectableRowsHighlight
+                    selectableRowsSingle
+                    selectableRowsVisibleOnly
+                    onSelectedRowsChange={(data) => isEmpty(data.selectedRows) ? props.selectMovie(null) : props.selectMovie(data.selectedRows[0].episode_id)}
+                    clearSelectedRows={toggledClearRows}
+                />
+            </Row>
+        </>
     )
+}
+
+ListMovies.propTypes = {
+    loading: PropTypes.bool,
+    movies: PropTypes.arrayOf(
+        PropTypes.exact(MovieShape)
+    ),
+    selectMovie: PropTypes.func
 }
 
 const mapStateToProps = state => {
@@ -49,16 +92,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-      selectMovie: (episode_id) => dispatch(actions.selectMovie(episode_id)),
+        selectMovie: (episode_id) => dispatch(actions.selectMovie(episode_id)),
     };
-  }
-
-ListMovies.propTypes = {
-    loading: PropTypes.bool,
-    movies: PropTypes.arrayOf(
-        PropTypes.exact(MovieShape)
-    ),
-    selectMovie: PropTypes.func
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListMovies);

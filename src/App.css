@@ -1,0 +1,28 @@
+.grid-title{
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.clear-search{
+    position: absolute;
+    top: 0;
+    right: 25px;
+    z-index: 2;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.clear-search:hover{
+    color: #0d6efd;
+    transition: .3s ease;
+}
+
+.clear-search:disabled{
+    color: #1010104D;
+    cursor: not-allowed;
+}
