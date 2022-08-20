@@ -18,7 +18,7 @@ const composeEnhancers =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
   compose;
 
-const store = createStore(moviesReducer, composeEnhancers(applyMiddleware(thunk)));
+export const store = createStore(moviesReducer, composeEnhancers(applyMiddleware(thunk)));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
