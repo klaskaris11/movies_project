@@ -14,7 +14,7 @@ function App(props) {
   const listMoviesStandardClasses = ["pt-3", "pt-lg-0", "my-auto"];
 
   useEffect(() => {
-    document.title = `Movies Propject`;
+    document.title = `Movies Project`;
     props.fetchAllMovies();
   }, []);
 
