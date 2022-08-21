@@ -27,6 +27,10 @@ const columns = [
     },
 ];
 
+/* This component render a search box and the list of movies
+* List of movies rendered using DataTable component - docs: https://react-data-table-component.netlify.app/
+* DatatableFilter component (../../Components/UI/DatatableFilter/DatatableFilter) is constructed by me and filters the entries of the movies grid
+*/
 function ListMovies(props) {
 
     const [filterText, setFilterText] = useState('');
@@ -41,7 +45,6 @@ function ListMovies(props) {
         props.selectMovie(null);
     }
 
-    //Docs of the following: https://react-data-table-component.netlify.app/
     return (
         <>
             <Row classes={["mt-2", "p-3"]}>

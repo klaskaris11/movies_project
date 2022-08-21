@@ -1,3 +1,5 @@
+// Shape of the movie object
+
 import PropTypes from 'prop-types';
 
 export const MovieShape = {

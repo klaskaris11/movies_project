@@ -6,6 +6,9 @@ import { getMovieByEpisodeId } from '../../Store/Selectors/MovieSelector';
 import { MovieShape } from '../../Models/MovieShape';
 import ListMovieDetail from './ListMovieDetail/ListMovieDetail';
 
+/* ListMovieDetails Component renders the selected movie, using the ListMovieDetail component
+* If no movie is selected (selectedMovie === null), then a default text appears
+*/
 function ListMovieDetails(props) {
     return (
         <div>

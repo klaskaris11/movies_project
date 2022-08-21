@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// ListMovieDetail Component renders all properties of the movie selected (title, plot, director, producer)
+
 function ListMovieDetail(props) {
   return (
     <div>

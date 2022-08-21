@@ -14,7 +14,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 const composeEnhancers =
   (process.env.NODE_ENV !== 'production' &&
     typeof window !== 'undefined' &&
-    //@ts-expect-error
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
   compose;
 

@@ -9,6 +9,13 @@ import ListMovies from './Views/ListMovies/ListMovies';
 import ListMovieDetails from './Views/ListMovieDetails/ListMovieDetails';
 import { Row, Col } from './Components/UI/Grid/Grid';
 
+/*
+* App component renders the entire app
+* If loading is true, which means that the api call is in progress, then a spinner is been displayed
+* If loading finish, then the list of movies is displayed on the left panel of the layout and the properties of each movie is displayed on the right one.
+* As css theme I used bootstrap 5, so the correct alignment achieved by using Row and Col components, constructed by me, which uses bootstrap classes.
+*/
+
 function App(props) {
 
   const listMoviesStandardClasses = ["pt-3", "pt-lg-0", "my-auto"];

@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
 
+/*
+* In this component, the button element in used to clear the input text, and is disabled when no text has been registered
+*/
 function DatatableFilter(props) {
     return (
         <div className='position-relative'>
