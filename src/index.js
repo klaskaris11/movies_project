@@ -5,7 +5,7 @@ import App from './App';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import moviesReducer from './Store/Reducers/moviesReducer';
+import moviesReducer from './Store/Reducers/MoviesReducer';
 
 // source for the following 2 line: https://create-react-app.dev/docs/adding-bootstrap/
 import 'bootstrap/dist/js/bootstrap';

@@ -16,6 +16,7 @@ function ListMovieDetails(props) {
                         plot={props.selectedMovie.opening_crawl}
                         director={props.selectedMovie.director}
                         producer={props.selectedMovie.producer}
+                        data-testid="list-move-detail"
                     />
                     : <span>Select a movie to read details...</span>
             }

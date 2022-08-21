@@ -1,4 +1,4 @@
-import * as actionTypes from './actionTypes';
+import * as actionTypes from './ActionTypes';
 import { fetchMoviesUrl } from '../../BackendAPI/Urls';
 import { getResource } from '../../BackendAPI/CRUDActions';
 

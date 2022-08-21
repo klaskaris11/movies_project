@@ -4,9 +4,9 @@ import DataTable from 'react-data-table-component';
 import PropTypes from 'prop-types';
 import { isEmpty } from 'lodash';
 
-import * as actions from '../../Store/Actions/index';
+import * as actions from '../../Store/Actions';
 import { MovieShape } from '../../Models/MovieShape';
-import { Row, Col } from '../../Components/UI/Grid/Grid';
+import { Row } from '../../Components/UI/Grid/Grid';
 import DatatableFilter from '../../Components/UI/DatatableFilter/DatatableFilter';
 
 const columns = [

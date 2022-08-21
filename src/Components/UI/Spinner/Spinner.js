@@ -7,7 +7,7 @@ function Spinner(props) {
             <div className="spinner-border text-secondary" role="status">
                 <span className="visually-hidden">Loading...</span>
             </div>
-            <p>{props.text}</p>
+            <p data-testid="spinner-text">{props.text}</p>
         </div>
     )
 }

@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 function ListMovieDetail(props) {
   return (
     <div>
-        <h3>{props.title}</h3>
-        <p>{props.plot}</p>
+        <h3 data-testid="movie-title">{props.title}</h3>
+        <p data-testid="movie-plot">{props.plot}</p>
         <hr/>
-        <p>Directed by {props.director}</p>
-        <p>Produced by {props.producer}</p>
+        <p data-testid="movie-director">Directed by {props.director}</p>
+        <p data-testid="movie-producer">Produced by {props.producer}</p>
     </div>
   )
 }

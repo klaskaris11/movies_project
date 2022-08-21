@@ -1,8 +1,21 @@
-import { render, screen } from '@testing-library/react';
+import { getByText, render, screen } from '@testing-library/react';
 import Spinner from './Spinner';
 
-test('renders learn react link', () => {
-  render(<Spinner />);
-  const linkElement = screen.getByText(/Loading.../i);
-  expect(linkElement).toBeInTheDocument();
+const TEXT = "This is a custom text";
+
+describe('Spinner Test', () => {
+  test("To show the correct text", () => {
+    const { getByTestId } = render(
+      <Spinner
+        text={TEXT}
+      />
+    );
+    expect(getByTestId("spinner-text")).toHaveTextContent(TEXT);
+  });
+
+  test("To correctly rendered", () => {
+    render(<Spinner />);
+    const linkElement = screen.getByText(/Loading.../i);
+    expect(linkElement).toBeInTheDocument();
+  });
 });

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './App.css';
 
-import * as actions from './Store/Actions/index';
+import * as actions from './Store/Actions';
 import Spinner from './Components/UI/Spinner/Spinner';
 import ListMovies from './Views/ListMovies/ListMovies';
 import ListMovieDetails from './Views/ListMovieDetails/ListMovieDetails';
