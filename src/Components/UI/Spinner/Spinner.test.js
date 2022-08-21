@@ -15,7 +15,7 @@ describe('Spinner Test', () => {
 
   test("To correctly rendered", () => {
     render(<Spinner />);
-    const linkElement = screen.getByText(/Loading.../i);
-    expect(linkElement).toBeInTheDocument();
+    const spinnerElement = screen.getByText(/Loading.../i);
+    expect(spinnerElement).toBeInTheDocument();
   });
 });
